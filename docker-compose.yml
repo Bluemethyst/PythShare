@@ -1,9 +1,11 @@
 services:
-  web:
-    build: .
+  pythshare:
+    container_name: pythshare
+    image: bluemethyst/pythshare:1.0.0
+    restart: always
+    environment:
+      - FLASK_ENV=development
     ports:
       - "5000:5000"
     volumes:
-      - .:/app
-    environment:
-      - FLASK_ENV=development
+      - /srv/docker/pythshare/uploads:/app/uploads
